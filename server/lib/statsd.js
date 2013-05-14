@@ -3,10 +3,14 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 const
-StatsD = require("node-statsd").StatsD,
 config = require('./configuration'),
 logger = require('./logging').logger;
 
+try {
+  const StatsD = require('node-statsd');
+} catch(ex) {
+  
+}
 // Per @fetep browserid.bigtent.somekey
 const PREFIX = "browserid." + config.get('process_type') + ".";
 
@@ -25,6 +29,10 @@ module.exports = {
 var statsd_config = config.get('statsd');
 
 if (statsd_config && statsd_config.enabled) {
+  if (!StatsD) {
+    logger.warn("node-statsd module missing");
+    return;
+  }
   var options = {};
   options.host = config.host || "localhost";
   options.port = config.port || 8125;
