@@ -10,9 +10,11 @@
   "main": "server/bin/bigtent",
   "scripts": {
     "test": "vows server/tests/*-test.js --spec",
-    "start": "node server/bin/bigtent"
+    "start": "node scripts/run_locally.js",
+    "postinstall": "node scripts/postinstall.js"
   },
   "dependencies": {
+    "browserid-certifier": "https://github.com/mozilla/browserid-certifier/tarball/f8e6679339",
     "client-sessions": "0.2.0",
     "connect-cachify": "0.0.11",
     "convict": "0.0.6",

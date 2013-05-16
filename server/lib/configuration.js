@@ -18,8 +18,14 @@ var conf = module.exports = convict({
   },
   // Longest possible cert expiration in seconds
   certificate_duration: 'integer = 300', // 5 minutes
-  certifier_host: 'string = "127.0.0.1"',
-  certifier_port: "integer{1,65535} = 8080",
+  certifier_host: {
+    format: 'string = "127.0.0.1"',
+    env: 'CERTIFIER_HOST'
+  },
+  certifier_port: {
+    format: "integer{1,65535} = 8080",
+    env: 'CERTIFIER_PORT'
+  },
   client_sessions: {
     cookie_name: 'string = "session"',
     secret: 'string = "YOU MUST CHANGE ME"',
@@ -94,7 +100,10 @@ var conf = module.exports = convict({
     client_secret: 'string = "NgepFX4ectJP-l-5XOymSqk4aLy7DJrE"'
   },
   pub_key_ttl: "integer = " + (6 * 60 * 60), // 6 hours
-  pub_key_path: 'string = "var/key.publickey"',
+  pub_key_path: {
+    format: 'string = "var/key.publickey"',
+    env: 'PUB_KEY_PATH'
+  },
   email_to_console: 'boolean = false',
   smtp: {
     host: 'string?',

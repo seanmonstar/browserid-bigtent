@@ -440,7 +440,7 @@ exports.init = function(app) {
 
   app.get('/', function(req, res) {
     addHeadersToForceRevalidation(res);
-    res.redirect('https://login.persona.org/');
+    res.redirect(config.get('browserid_server'));
   });
 
   // GET /__heartbeat__
