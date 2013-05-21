@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var fs = require('fs');
-var config = '/home/app/local.json',
+var config = '/home/app/config.json',
     devConfig = '/home/app/code/server/config/local.json';
 
 var reportError = function (err, fatal) {
