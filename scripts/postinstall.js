@@ -6,4 +6,5 @@ function node(script) {
   cp.stderr.pipe(process.stderr);
 }
 
+node('./create_local_config.js');
 node('./generate_keys.js');

@@ -9,11 +9,19 @@ const path = require('path');
 // ./server is our current working directory
 process.chdir(path.dirname(__dirname));
 
+
+const config = require('../lib/configuration');
+const logger = require('../lib/logging').logger;
+
+const USE_HTTPS = config.get('use_https');
+if (!USE_HTTPS) {
+  logger.warn('Not using HTTPS. I hope you know what you\'re doing!');
+}
+
 const
 assets = require('../lib/assets'),
 cachify = require('connect-cachify'),
 clientSessions = require('client-sessions'),
-config = require('../lib/configuration'),
 express = require('express'),
 fs = require('fs'),
 healthCheck = require('../lib/startup_health_check'),
@@ -24,12 +32,11 @@ passport_yahoo = require('../lib/passport_yahoo'),
 routes = require('../routes'),
 session = require('../lib/session_context'),
 statsd = require('../lib/statsd'),
-util = require('util'),
-logger = require('../lib/logging').logger;
+util = require('util');
 
 var app;
 
-if (config.get('use_https')) {
+if (USE_HTTPS) {
   try {
     var privateKey = fs.readFileSync('config/privatekey.pem').toString();
     var certificate = fs.readFileSync('config/certificate.pem').toString();
