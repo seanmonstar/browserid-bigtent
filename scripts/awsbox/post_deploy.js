@@ -16,6 +16,7 @@ var comp = child_process.spawn('/home/app/code/scripts/compress',
 comp.stdout.pipe(process.stdout);
 comp.stderr.pipe(process.stderr);
 
+/*
 process.stdout.write('Starting up certifier\n');
 var certEnv = Object.create(process.env);
 certEnv.CONFIG_FILES = certifierConfig;
@@ -25,3 +26,4 @@ var cert = child_process.spawn('forever -a -l /home/app/var/log/certifier.log st
 
 cert.stdout.pipe(process.stdout);
 cert.stderr.pipe(process.stderr);
+*/
