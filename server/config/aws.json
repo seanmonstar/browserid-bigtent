@@ -2,7 +2,6 @@
   "browserid_server": "https://login.dev.anosrep.org",
   "certifier_host": "localhost",
   "certifier_port": 8081,
-  "email_to_console": false,
   "use_https": false,
   "pub_key_path": "/home/app/var/key.publickey",
   "var_path": "/home/app/var"
