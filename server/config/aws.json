@@ -7,6 +7,11 @@
     "secret": "qwertyasdfgh123456",
     "duration": 86400000
   },
+  "account_link_sessions": {
+    "cookie_name": "session",
+    "secret": "1234567890",
+    "duration": 86400000
+  },
   "use_https": false,
   "pub_key_path": "/home/app/browserid-certifier/var/key.publickey",
   "var_path": "/home/app/var"
