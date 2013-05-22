@@ -4,7 +4,7 @@
   "certifier_port": 8081,
   "client_sessions": {
     "cookie_name": "session",
-    "secret": "qwertyasdfgh123456"
+    "secret": "qwertyasdfgh123456",
     "duration": 86400000
   },
   "use_https": false,
