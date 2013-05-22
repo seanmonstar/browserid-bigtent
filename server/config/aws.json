@@ -2,6 +2,11 @@
   "browserid_server": "https://login.dev.anosrep.org",
   "certifier_host": "localhost",
   "certifier_port": 8081,
+  "client_sessions": {
+    "cookie_name": "session",
+    "secret": "qwertyasdfgh123456"
+    "duration": 86400000
+  },
   "use_https": false,
   "pub_key_path": "/home/app/browserid-certifier/var/key.publickey",
   "var_path": "/home/app/var"
