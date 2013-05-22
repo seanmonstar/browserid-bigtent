@@ -1,10 +1,9 @@
 {
-	"browserid_server": "https://login.dev.anosrep.org",
-	"certifier_host": "localhost",
-	"cetifier_port": 8080,
-	"email_to_console": false,
-	"use_https": false,
-	"pub_key_path": "/home/app/var/key.publickey",
-	"priv_key_path": "/home/app/var/key.secretkey",
-	"var_path": "/home/app/var"
+  "browserid_server": "https://login.dev.anosrep.org",
+  "certifier_host": "localhost",
+  "cetifier_port": 8080,
+  "email_to_console": false,
+  "use_https": false,
+  "pub_key_path": "/home/app/var/key.publickey",
+  "var_path": "/home/app/var"
 }
