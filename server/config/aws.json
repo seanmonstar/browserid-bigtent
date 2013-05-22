@@ -3,6 +3,6 @@
   "certifier_host": "localhost",
   "certifier_port": 8081,
   "use_https": false,
-  "pub_key_path": "/home/app/var/key.publickey",
+  "pub_key_path": "/home/app/browserid-certifier/var/key.publickey",
   "var_path": "/home/app/var"
 }
