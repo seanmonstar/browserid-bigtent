@@ -1,5 +1,11 @@
 {
-  "processes": [ "server/bin/bigtent" ],
+  "processes": [ 
+		"server/bin/bigtent",
+		"node_modules/browserid-certifier/bin/certifier"
+	],
+	"env": {
+		"CONFIG_FILES": "$HOME/code/server/config/aws.json,$HOME/config.json"
+	},
   "hooks": {
     "postdeploy": "scripts/awsbox/post_deploy.js"
   }

@@ -38,7 +38,7 @@
     "node-statsd": "https://github.com/downloads/lloyd/node-statsd/0509f85.tgz"
   },
   "devDependencies": {
-    "awsbox": "0.3.3",
+    "awsbox": "0.4.4",
     "http-proxy": "0.8.1",
     "loady": "git://github.com/mozilla/loady.git",
     "vows": "0.7.0"
