@@ -7,7 +7,7 @@ config = require('./configuration'),
 logger = require('./logging').logger;
 
 try {
-  const StatsD = require('node-statsd');
+  const StatsD = require('node-statsd').StatsD;
 } catch(ex) {
   
 }
