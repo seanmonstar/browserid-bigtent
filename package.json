@@ -14,10 +14,10 @@
     "postinstall": "node scripts/postinstall.js"
   },
   "dependencies": {
-    "browserid-certifier": "https://github.com/mozilla/browserid-certifier/tarball/f8e6679339",
+    "browserid-certifier": "https://github.com/mozilla/browserid-certifier/tarball/5200ae4f3c",
     "client-sessions": "0.3.0",
     "connect-cachify": "0.0.11",
-    "convict": "0.0.6",
+    "convict": "0.2.0",
     "ejs": "*",
     "express": "2.5.11",
     "i18n-abide": "0.0.8beta4",
@@ -43,7 +43,6 @@
     "loady": "git://github.com/mozilla/loady.git",
     "vows": "0.7.0"
   },
-  "optionalDependencies": {},
   "engines": {
     "node": ">= 0.8.11"
   }

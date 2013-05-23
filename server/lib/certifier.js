@@ -5,53 +5,29 @@
 /* Module is a function which sends requests for certificates to the certifier. */
 
 const
+path = require('path'),
+fs = require('fs'),
 config = require('./configuration'),
-http = require('http'),
-https = require('https'),
 statsd = require('./statsd');
 
-var host = config.get('certifier_host'),
-port = config.get('certifier_port'),
-lib = port === 443 ? https : http;
+const certify = require('browserid-certifier').certify;
+
+var privKeyPath = path.join(__dirname, config.get('priv_key_path'));
+const PRIV_KEY = fs.readFileSync(privKeyPath);
 
 module.exports = function (pubkey, email, duration_s, cb) {
-  var body = JSON.stringify({
-        duration: duration_s,
-        pubkey: pubkey,
-        email: email
-      }),
-      req,
-      start = new Date();
   statsd.increment('certifier.invoked');
-  req = lib.request({
-    host: host,
-    port: port,
-    path: '/cert_key',
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Content-Length': body.length
-    }
-  }, function (res) {
-    var res_body = "";
-    if (res.statusCode >= 400) {
-      return cb('Error talking to certifier... code=' + res.statusCode + ' ');
-    } else {
-      res.on('data', function (chunk) {
-        res_body += chunk.toString('utf8');
-      });
-      res.on('end', function () {
-        statsd.timing('certifier', new Date() - start);
-        cb(null, res_body);
-      });
-    }
-    return;
+  var start = new Date();
+  var options = {
+    pubkey: pubkey,
+    privkey: PRIV_KEY,
+    duration: duration_s,
+    email: email,
+    hostname: config.get('issuer')
+  };
+  certify(options, function onCert(err, cert) {
+    if (err) statsd.timing('certifier.unavailable.error', new Date() - start);
+    else statsd.timing('certifier', new Date() - start);
+    cb(err, cert);
   });
-  req.on('error', function (err) {
-    console.error("Ouch, certifier is down: ", err);
-    statsd.timing('certifier.unavailable.error', new Date() - start);
-    cb("certifier is down");
-  });
-  req.write(body);
-  req.end();
 };

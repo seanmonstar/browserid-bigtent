@@ -185,7 +185,6 @@ exports.init = function(app) {
     }
 
     var certified_cb = function(err, cert) {
-      var certificate;
 
       if (err) {
         return cryptoError(res, start);
@@ -447,26 +446,8 @@ exports.init = function(app) {
   //   Report on whether or not this node is functioning as expected.
   app.get('/__heartbeat__', function(req, res) {
     addHeadersToPreventCaching(res);
-    var
-    url = util.format('http://%s:%s/__heartbeat__',
-                      config.get('certifier_host'),
-                      config.get('certifier_port')),
-    opts = {
-      url: url,
-      timeout: 500
-    };
-    request(url, function(err, heartResp, body) {
-      if (err ||
-          200 !== heartResp.statusCode ||
-          'ok certifier' !== body.trim()) {
-        res.writeHead(500);
-        res.write('certifier down');
-        res.end();
-      } else {
-        res.writeHead(200);
-        res.write('ok');
-        res.end();
-      }
-    });
+    res.writeHead(200);
+    res.write('ok');
+    res.end();
   });
 };

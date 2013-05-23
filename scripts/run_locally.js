@@ -23,14 +23,6 @@ const daemonsToRun = {
     CERTIFIER_PORT: CERTIFIER_PORT,
     PUB_KEY_PATH: PUB_KEY,
     CONFIG_FILES: CONFIG_FILES
-  },
-  certifier: {
-    path: path.join(__dirname, '..', 'node_modules', 'browserid-certifier', 'bin', 'certifier'),
-    IP_ADDRESS: HOST,
-    PORT: CERTIFIER_PORT,
-    ISSUER_HOSTNAME: HOST,
-    PUB_KEY_PATH: PUB_KEY,
-    PRIV_KEY_PATH: path.join(__dirname, '..', 'var', 'key.secretkey')
   }
 };
 
