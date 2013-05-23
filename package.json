@@ -17,7 +17,7 @@
     "browserid-certifier": "https://github.com/mozilla/browserid-certifier/tarball/5200ae4f3c",
     "client-sessions": "0.3.0",
     "connect-cachify": "0.0.11",
-    "convict": "0.2.0",
+    "convict": "0.0.6",
     "ejs": "*",
     "express": "2.5.11",
     "i18n-abide": "0.0.8beta4",
