@@ -97,7 +97,7 @@ var conf = module.exports = convict({
     env: 'PUB_KEY_PATH'
   },
   priv_key_path: {
-    format: 'string = "var/key.privatekey"',
+    format: 'string = "var/key.secretkey"',
     env: 'PRIV_KEY_PATH'
   },
   email_to_console: 'boolean = false',
