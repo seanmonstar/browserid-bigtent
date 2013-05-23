@@ -1,7 +1,5 @@
 {
   "browserid_server": "http://192.168.186.138:10002",
-  "certifier_host": "127.0.0.1",
-  "certifier_port": 8080,
   "client_sessions": {
     "cookie_name": "session_state",
     "secret": "THIS MUST CHANGE",

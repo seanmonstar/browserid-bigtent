@@ -2,8 +2,10 @@ const path = require('path');
 const spawn = require('child_process').spawn;
 
 const HOST = process.env.IP_ADDRESS || process.env.HOST || '127.0.0.1';
-const CERTIFIER_PORT = 3040;
 const PUB_KEY = path.join(__dirname, '..', 'var', 'key.publickey');
+const PRIV_KEY = path.join(__dirname, '..', 'var', 'key.privatekey');
+
+
 
 process.env.LOG_TO_CONSOLE = 1;
 
@@ -20,8 +22,8 @@ const daemonsToRun = {
     path: path.join(__dirname, '..', 'server', 'bin', 'bigtent'),
     IP_ADDRESS: HOST,
     PORT: 3030,
-    CERTIFIER_PORT: CERTIFIER_PORT,
     PUB_KEY_PATH: PUB_KEY,
+    PRIV_KEY_PATH: PRIV_KEY,
     CONFIG_FILES: CONFIG_FILES
   }
 };
