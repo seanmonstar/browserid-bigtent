@@ -11,9 +11,7 @@ config = require('./configuration'),
 statsd = require('./statsd');
 
 const certify = require('browserid-certifier').certify;
-
-var privKeyPath = path.join(__dirname, config.get('priv_key_path'));
-const PRIV_KEY = fs.readFileSync(privKeyPath);
+const PRIV_KEY = fs.readFileSync(config.get('priv_key_path'));
 
 module.exports = function (pubkey, email, duration_s, cb) {
   statsd.increment('certifier.invoked');
